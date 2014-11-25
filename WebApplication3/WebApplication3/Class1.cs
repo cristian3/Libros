@@ -24,5 +24,10 @@ namespace WebApplication3
             this.descripcion = descripcion;
             this.URL = URL;
         }
+        
+        public String String()
+        {
+            return nombre+","+descripcion+","+URL;
+        }
     }
 }

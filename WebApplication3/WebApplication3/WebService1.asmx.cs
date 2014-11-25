@@ -48,7 +48,7 @@ namespace WebApplication3
             
         }
             [WebMethod]
-            public Class1[] ListadoClientes()
+            public String[] ListadoClientes()
             {
                 SqlConnection con =
                     new SqlConnection(@"Data Source=1fbb1ef7-3ab6-440e-b714-a3ee0010dc18.sqlserver.sequelizer.com;Initial Catalog=db1fbb1ef73ab6440eb714a3ee0010dc18;User ID=pdbzjhhhipccekmj;Password=EY7V2wNGCFLfWgpZhypvWHZAsQuf4FJ8GFoHjUmnBDyXMkDnvm6ShhH67DBkbGM6;Integrated Security=False");
@@ -61,14 +61,14 @@ namespace WebApplication3
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                List<Class1> lista = new List<Class1>();
+                List<String> lista = new List<String>();
 
                 while (reader.Read())
                 {
                     lista.Add(
                         new Class1(reader.GetString(0),
                                     reader.GetString(1),
-                                    reader.GetString(2)));
+                                    reader.GetString(2)).String());
                 }
 
                 con.Close();
