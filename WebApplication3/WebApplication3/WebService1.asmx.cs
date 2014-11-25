@@ -47,5 +47,33 @@ namespace WebApplication3
                 return res;
             
         }
+            [WebMethod]
+            public Class1[] ListadoClientes()
+            {
+                SqlConnection con =
+                    new SqlConnection(@"Data Source=1fbb1ef7-3ab6-440e-b714-a3ee0010dc18.sqlserver.sequelizer.com;Initial Catalog=db1fbb1ef73ab6440eb714a3ee0010dc18;User ID=pdbzjhhhipccekmj;Password=EY7V2wNGCFLfWgpZhypvWHZAsQuf4FJ8GFoHjUmnBDyXMkDnvm6ShhH67DBkbGM6;Integrated Security=False");
+
+                con.Open();
+
+                string sql = "SELECT Nombre, Categoria, Descripcion FROM LIBRO";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                List<Class1> lista = new List<Class1>();
+
+                while (reader.Read())
+                {
+                    lista.Add(
+                        new Class1(reader.GetString(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2)));
+                }
+
+                con.Close();
+
+                return lista.ToArray();
+            }
     }
 }
