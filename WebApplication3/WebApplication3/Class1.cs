@@ -9,6 +9,7 @@ namespace WebApplication3
     {
         private int id { get; set; }
         private String nombre { get; set; }
+        private String categoria { get; set; }
         private String descripcion { get; set; }
         private String URL { get; set; }
         public Class1()
@@ -18,16 +19,20 @@ namespace WebApplication3
             descripcion = "";
             URL = "";
         }
-        public Class1(String nombre, String descripcion, String URL)
+        public Class1(String nombre,String categoria, String descripcion, String URL)
         {
             this.nombre = nombre;
+            this.categoria = categoria;
             this.descripcion = descripcion;
-            this.URL = URL;
+            if (URL != null)
+            {
+                this.URL = URL;
+            }
         }
         
         public String String()
         {
-            return nombre+","+descripcion+","+URL;
+            return nombre+","+categoria+","+descripcion+","+URL;
         }
     }
 }

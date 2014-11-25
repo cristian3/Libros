@@ -32,7 +32,7 @@ namespace WebApplication3
 
                 con.Open();
 
-                string sql = "INSERT INTO LIBRO (Nombre,Categoria,Descripcion,URL) VALUES (@nombre, @categoria,@descripcion,@URL)";
+                string sql = "INSERT INTO LIB (Nombre,Categoria,Descripcion,URL) VALUES (@nombre, @categoria,@descripcion,@URL)";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
               
@@ -56,7 +56,7 @@ namespace WebApplication3
 
                 con.Open();
 
-                string sql = "SELECT Nombre, Categoria, Descripcion FROM LIBRO";
+                string sql = "SELECT Nombre, Categoria, Descripcion,URL FROM LIB";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -69,7 +69,7 @@ namespace WebApplication3
                     lista.Add(
                         new Class1(reader.GetString(0),
                                     reader.GetString(1),
-                                    reader.GetString(2)).String());
+                                    reader.GetString(2), reader.GetString(3)).String());
                 }
 
                 con.Close();
