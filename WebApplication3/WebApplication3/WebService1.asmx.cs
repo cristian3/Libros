@@ -17,7 +17,6 @@ namespace WebApplication3
     // [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
-        private int contador = 1;
         /// <summary>
         /// Descripción breve de WebService1
         /// </summary>
@@ -33,14 +32,14 @@ namespace WebApplication3
 
                 con.Open();
 
-                string sql = "INSERT INTO LIBROS (Id,Nombre,Categoria,Descripcion) VALUES (@id,@nombre, @categoria,@descripcion)";
+                string sql = "INSERT INTO LIBRO (Nombre,Categoria,Descripcion) VALUES (@nombre, @categoria,@descripcion)";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.Add("@id",System.Data.SqlDbType.NVarChar).Value=contador;
+              
                 cmd.Parameters.Add("@nombre", System.Data.SqlDbType.NVarChar).Value = nombre;
                 cmd.Parameters.Add("@categoria", System.Data.SqlDbType.NVarChar).Value = categoria;
                 cmd.Parameters.Add("@descripcion", System.Data.SqlDbType.NVarChar).Value = descripcion;
-                contador++;
+              
                 int res = cmd.ExecuteNonQuery();
 
                 con.Close();
