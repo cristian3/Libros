@@ -25,14 +25,14 @@ namespace WebApplication3
         // [System.Web.Script.Services.ScriptService]
         
             [WebMethod]
-            public int NuevoLibro(string nombre, String categoria, String descripcion,String URL)
+            public int NuevoLibro(string nombre, String categoria, String descripcion,String URL,String user_id)
             {
                SqlConnection con =
                     new SqlConnection(@"Data Source=1fbb1ef7-3ab6-440e-b714-a3ee0010dc18.sqlserver.sequelizer.com;Initial Catalog=db1fbb1ef73ab6440eb714a3ee0010dc18;User ID=pdbzjhhhipccekmj;Password=EY7V2wNGCFLfWgpZhypvWHZAsQuf4FJ8GFoHjUmnBDyXMkDnvm6ShhH67DBkbGM6;Integrated Security=False");
 
                 con.Open();
 
-                string sql = "INSERT INTO LIB (Nombre,Categoria,Descripcion,URL) VALUES (@nombre, @categoria,@descripcion,@URL)";
+                string sql = "INSERT INTO LIB (Nombre,Categoria,Descripcion,URL,user_id) VALUES (@nombre, @categoria,@descripcion,@URL,@user_id)";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
               
@@ -40,7 +40,7 @@ namespace WebApplication3
                 cmd.Parameters.Add("@categoria", System.Data.SqlDbType.NVarChar).Value = categoria;
                 cmd.Parameters.Add("@descripcion", System.Data.SqlDbType.NVarChar).Value = descripcion;
                 cmd.Parameters.Add("@URL", System.Data.SqlDbType.NVarChar).Value = URL;
-              
+                cmd.Parameters.Add("@user_id",System.Data.SqlDbType.NVarChar).Value=user_id;
                 int res = cmd.ExecuteNonQuery();
 
                 con.Close();
@@ -56,7 +56,7 @@ namespace WebApplication3
 
                 con.Open();
 
-                string sql = "SELECT Nombre, Categoria, Descripcion,URL FROM LIB";
+                string sql = "SELECT Nombre, Categoria, Descripcion,URL,user_id FROM LIB";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -69,7 +69,7 @@ namespace WebApplication3
                     lista.Add(
                         new Class1(reader.GetString(0),
                                     reader.GetString(1),
-                                    reader.GetString(2), reader.GetString(3)).String());
+                                    reader.GetString(2), reader.GetString(3), reader.GetString(4)).String());
                 }
 
                 con.Close();
