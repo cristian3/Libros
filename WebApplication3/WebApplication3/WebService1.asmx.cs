@@ -32,7 +32,7 @@ namespace WebApplication3
 
                 con.Open();
 
-                string sql = "INSERT INTO LIB (Nombre,Categoria,Descripcion,URL,user_id,foto) VALUES (@nombre, @categoria,@descripcion,@URL,@user_id,@foto)";
+                string sql = "INSERT INTO LIB (Nombre,Categoria,Descripcion,URL,user_id) VALUES (@nombre, @categoria,@descripcion,@URL,@user_id)";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
               
