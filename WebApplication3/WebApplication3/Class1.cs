@@ -14,6 +14,7 @@ namespace WebApplication3
         private String URL { get; set; }
         private String foto { get; set; }
         private String user_id { get; set; }
+        private String urlfoto { get; set; }
         public Class1()
         {
             id = 0;
@@ -21,7 +22,7 @@ namespace WebApplication3
             descripcion = "";
             URL = "";
         }
-        public Class1(String nombre,String categoria, String descripcion, String URL,String user_id)
+        public Class1(String nombre,String categoria, String descripcion, String URL,String user_id,String foto)
         {
             this.nombre = nombre;
             this.categoria = categoria;
@@ -29,6 +30,10 @@ namespace WebApplication3
             if (user_id != null)
             {
                 this.user_id = user_id;
+            }
+            if (urlfoto != null)
+            {
+                this.urlfoto = foto;
             }
             if (URL != null)
             {
