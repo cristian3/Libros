@@ -22,7 +22,7 @@ namespace WebApplication3
             descripcion = "";
             URL = "";
         }
-        public Class1(String nombre,String categoria, String descripcion, String URL,String user_id,String foto)
+        public Class1(String nombre,String categoria, String descripcion, String URL,String user_id)
         {
             this.nombre = nombre;
             this.categoria = categoria;
@@ -31,10 +31,7 @@ namespace WebApplication3
             {
                 this.user_id = user_id;
             }
-            if (urlfoto != null)
-            {
-                this.urlfoto = foto;
-            }
+            
             if (URL != null)
             {
                 this.URL = URL;
