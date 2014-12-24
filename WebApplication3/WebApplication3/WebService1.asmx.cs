@@ -32,7 +32,7 @@ namespace WebApplication3
 
                 con.Open();
 
-                string sql = "INSERT INTO LIB (Nombre,Categoria,Descripcion,URL,user_id) VALUES (@nombre, @categoria,@descripcion,@URL,@user_id)";
+                string sql = "INSERT INTO LIBO (Nombre,Categoria,Descripcion,URL,user_id) VALUES (@nombre, @categoria,@descripcion,@URL,@user_id)";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
               
@@ -55,7 +55,7 @@ namespace WebApplication3
                     new SqlConnection(@"Data Source=1fbb1ef7-3ab6-440e-b714-a3ee0010dc18.sqlserver.sequelizer.com;Initial Catalog=db1fbb1ef73ab6440eb714a3ee0010dc18;User ID=pdbzjhhhipccekmj;Password=EY7V2wNGCFLfWgpZhypvWHZAsQuf4FJ8GFoHjUmnBDyXMkDnvm6ShhH67DBkbGM6;Integrated Security=False");
 
                 con.Open();
-                string sql = "SELECT Nombre, Categoria, Descripcion,URL,user_id FROM LIB";
+                string sql = "SELECT Nombre, Categoria, Descripcion,URL,user_id FROM LIBO";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
 
