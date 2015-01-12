@@ -40,7 +40,7 @@ namespace WebApplication3
         
         public String String()
         {
-            return nombre+","+categoria+","+descripcion+","+URL+","+user_id;
+            return nombre+"%"+categoria+"%"+descripcion+"%"+URL+"%"+user_id;
         }
     }
 }
